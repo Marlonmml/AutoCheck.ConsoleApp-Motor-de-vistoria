@@ -7,15 +7,19 @@ namespace AutoCheck.ConsoleApp
         public Moto(string marca, string modelo, int quilometragem,  int ano, int cilindradas)
             : base(marca, modelo, quilometragem, ano)
         {
-            Cilindradas = cilindradas;
+            this.Cilindradas = cilindradas;
         }
         public override void Preencher()
         {
             base.Preencher(); 
-            Console.WriteLine("Qual a cilindrada: ");
-            Cilindradas = int.Parse(Console.ReadLine());
-            
+            Cilindradas = new ValidarInt().LerNumero("Quantas cilindradas: ", "Apenas números, Digite cilindradas novamente: ");
         }
-        
+        public override List<string> ObterChecklistObrigatorio()
+        {
+            var checklist = base.ObterChecklistObrigatorio();
+            checklist.Add("Relação, Transmissão, Escapamento");
+            checklist.Add("Folga em rodas, caixa direção");
+            return checklist;
+        }
     }
 }
