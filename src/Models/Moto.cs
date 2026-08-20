@@ -16,10 +16,10 @@ namespace AutoCheck.ConsoleApp
         }
         public override List<string> ObterChecklistObrigatorio()
         {
-            var checklist = base.ObterChecklistObrigatorio();
-            checklist.Add("Relação, Transmissão, Escapamento");
-            checklist.Add("Folga em rodas, caixa direção");
-            return checklist;
+            var checkList = base.ObterChecklistObrigatorio();
+            checkList.Add("Relação, Transmissão, Escapamento");
+            checkList.Add("Folga em rodas, caixa direção");
+            return checkList;
         }
     }
 }

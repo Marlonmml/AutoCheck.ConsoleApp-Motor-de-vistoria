@@ -21,10 +21,10 @@ namespace AutoCheck.ConsoleApp
         }
         public override List<string> ObterChecklistObrigatorio()
         {
-            var checklist = base.ObterChecklistObrigatorio();
-            checklist.Add("Tacógrafo, Refletores, Sinalização");
-            checklist.Add("Carroceria, Engate, Eixo semi-eixo");
-            return checklist;
+            var checkList = base.ObterChecklistObrigatorio();
+            checkList.Add("Tacógrafo, Refletores, Sinalização");
+            checkList.Add("Carroceria, Engate, Eixo semi-eixo");
+            return checkList;
         }
     }
 }

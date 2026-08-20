@@ -16,10 +16,10 @@ namespace AutoCheck.ConsoleApp
         }
         public override List<string> ObterChecklistObrigatorio()
         {
-            var checklist = base.ObterChecklistObrigatorio();
-            checklist.Add("Interna, Painel, Estofamento");
-            checklist.Add("Vidros, Estepe, Macaco Hidráulico");
-            return checklist;
+            var checkList = base.ObterChecklistObrigatorio();
+            checkList.Add("Interna, Painel, Estofamento");
+            checkList.Add("Vidros, Estepe, Macaco Hidráulico");
+            return checkList;
         }
     }
 }

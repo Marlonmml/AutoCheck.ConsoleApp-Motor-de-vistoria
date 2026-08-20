@@ -1,13 +1,13 @@
-﻿using System;   
+﻿using System;
 namespace AutoCheck.ConsoleApp
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
+            MotorVistoria motorVistoria = new MotorVistoria();
             while (true)
             {
-                MotorVistoria motorVistoria = new MotorVistoria();
                 motorVistoria.Executar();
             }
         }
