@@ -7,36 +7,74 @@ namespace AutoCheck.ConsoleApp
         {
         }
         protected Veiculo(string marca, string modelo, int quilometragem, int ano)
-        { 
-            Marca = marca;
-            Modelo = modelo;
-            Quilometragem = quilometragem;
-            Ano = ano;
+        {
+            this.Marca = marca;
+            this.Modelo = modelo;
+            this.Quilometragem = quilometragem;
+            this.Ano = ano;
         }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public int Quilometragem { get; set; }
         public int Ano { get; set; }
+        public List<ItemVistoria> VistoriaRealizada { get; set; } = new List<ItemVistoria>();
         public virtual void Preencher()
         {
             Console.WriteLine("Digite a marca: ");
             Marca = Console.ReadLine();
-            Console.WriteLine("Digite o modelo: "); 
+            Console.WriteLine("Digite o modelo: ");
             Modelo = Console.ReadLine();
-            Console.WriteLine("Digite a quilometragem: ");
-            Quilometragem = int.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o ano:");
-            Ano = int.Parse(Console.ReadLine());
+            Quilometragem = new ValidarInt().LerNumero("Digite a quilometragem: ", "Apenas números, Digite quilometragem novamente: ");
+            Ano = new ValidarInt().LerNumero("Digite o ano: ", "Apenas números, Digite ano novamente: ");
+        }
+        public void AdicionarItemVistoriado(string nome, string status)
+        {
+            var item = new ItemVistoria(nome, status);
+            VistoriaRealizada.Add(item);
         }
 
-        public virtual void ObterChecklistObrigatorio()
+        public virtual List<string> ObterChecklistObrigatorio()
         {
-            Console.WriteLine("Checklist obrigatório para o veículo:");
-            Console.WriteLine("1. Verificar pneus");
-            Console.WriteLine("2. Verificar freios");
-            Console.WriteLine("3. Verificar luzes");
-            Console.WriteLine("4. Verificar óleo");
+            var baseCheckList = new List<string>();
+            baseCheckList.Add("Lataria, Barulhos, Vazamentos");
+            baseCheckList.Add("Motor, Elétrica, Suspensão");
+            baseCheckList.Add("Nº Chassi, Segurança, Documentos");
+            return baseCheckList;
         }
-        
+        public void RealizarVistoria()
+        {
+            foreach (var item in ObterChecklistObrigatorio())
+            {
+                
+                Console.WriteLine("=== Use apenas 'Bom', 'Regular' ou 'Ruim': ");
+                Console.WriteLine($" Itens:{item}");
+                string status = LerStatus();
+                AdicionarItemVistoriado(item, status);
+            }
+        }
+        private string LerStatus(string mensagem = "")
+        {
+            string status;
+            do
+            {
+                Console.WriteLine(mensagem);
+                status = Console.ReadLine();
+            }
+            while (status != "Bom" && status != "Regular" && status != "Ruim");
+            return status;
+        }
+        public void ExibirVistoriaRealizada()
+        {
+            if (VistoriaRealizada.Count == 0)
+            {
+                Console.WriteLine("\nNenhuma vistoria foi realizada ainda.");
+                return;
+            }
+            Console.WriteLine($" Vistoria de {Marca} {Modelo} Ano{Ano}");
+            foreach (var item in VistoriaRealizada)
+            {
+                Console.WriteLine($"- {item.Nome}: {item.Status}");
+            }
+        }
     }
 }

@@ -7,11 +7,11 @@ namespace AutoCheck.ConsoleApp
         {
             int valorInteiro;
             Console.WriteLine(mensagemInicial);
-        while (!int.TryParse(Console.ReadLine(), out valorInteiro))
-        {
-            Console.WriteLine(mensagemErro);
-        }
-        return valorInteiro;
+            while (!int.TryParse(Console.ReadLine(), out valorInteiro))
+            {
+                Console.WriteLine(mensagemErro);
+            }
+            return valorInteiro;
         }
     }
 }
