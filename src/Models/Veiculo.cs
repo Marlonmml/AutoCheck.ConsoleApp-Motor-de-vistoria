@@ -46,8 +46,8 @@ namespace AutoCheck.ConsoleApp
             foreach (var item in ObterChecklistObrigatorio())
             {
                 
-                Console.WriteLine("=== Use apenas 'Bom', 'Regular' ou 'Ruim': ");
-                Console.WriteLine($" Itens:{item}");
+                Console.WriteLine("\n>> Use apenas 'Bom', 'Regular' ou 'Ruim': ");
+                Console.WriteLine($"Itens: {item}");
                 string status = LerStatus();
                 AdicionarItemVistoriado(item, status);
             }
@@ -67,10 +67,9 @@ namespace AutoCheck.ConsoleApp
         {
             if (VistoriaRealizada.Count == 0)
             {
-                Console.WriteLine("\nNenhuma vistoria foi realizada ainda.");
                 return;
             }
-            Console.WriteLine($" Vistoria de {Marca} {Modelo} Ano{Ano}");
+            Console.WriteLine($" Veículo {Marca} {Modelo} Ano {Ano}");
             foreach (var item in VistoriaRealizada)
             {
                 Console.WriteLine($"- {item.Nome}: {item.Status}");

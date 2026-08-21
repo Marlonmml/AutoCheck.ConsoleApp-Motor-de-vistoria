@@ -1,7 +1,6 @@
 using System;
 namespace AutoCheck.ConsoleApp
 {   
-    
     public class MotorVistoria
     {
         private List<Veiculo> veiculos = new List<Veiculo>();
@@ -79,7 +78,8 @@ namespace AutoCheck.ConsoleApp
                     break;
                 case "2":
                     ExibirRelatorioVistorias();
-                    
+                    Console.WriteLine("|                                         |");
+                    Console.WriteLine("===========================================");
                     break;
                 case "3":
                     Console.WriteLine("\n| Obrigado por utilizar o AutoCheck .NET! |");
@@ -108,7 +108,9 @@ namespace AutoCheck.ConsoleApp
             {
                 Console.WriteLine($"|         Código da vistoria: {i+1}           |");
                 veiculos[i].ExibirVistoriaRealizada();
-                base.ExibirResultado();
+                var avaliador = new AvaliadorVistoria();
+                avaliador.Calcular(veiculos[i].VistoriaRealizada);
+                avaliador.Exibir();
             }
         } 
     }
