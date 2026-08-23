@@ -57,7 +57,7 @@ namespace AutoCheck.ConsoleApp
             if (Percentual >= 90)
             {
                 temApontamentos = false; 
-                Classificacao = " Aprovado com Excelência!!!";
+                Classificacao = " Aprovado com Excelência.";
                 Descricao = "  Liberado para compra/revenda imediata.\n";
             }
             else if (Percentual >= 60)
@@ -81,12 +81,12 @@ namespace AutoCheck.ConsoleApp
                 if (item.Status == "Regular")
                 {
                     apontamentos += $"\n{item.Nome} ({item.Status})\nExige revisão preventiva.\n";
-                    temApontamentos = true;
+                    
                 }
                 else if (item.Status == "Ruim")
                 {
                     apontamentos += $"\n{item.Nome} ({item.Status})\nExige reparo/troca obrigatória.\n";
-                    temApontamentos = true;
+                    
                 }
             }
             return apontamentos;
