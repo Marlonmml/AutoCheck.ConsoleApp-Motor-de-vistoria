@@ -13,7 +13,7 @@
 - No terminal, abra a pasta onde irá salvar o projeto com o comando `cd` e o caminho da pasta. Ex: `cd caminho/sua/pasta/SuaPasta`.
 - Com a pasta aberta, clone o repositório utilizando o comando:
 
-  `git clone https://github.com/Marlonmml/AutoCheck.ConsoleApp.git` 
+  `git clone https://github.com/Marlonmml/AutoCheck.ConsoleApp-Motor-de-vistoria.git` 
 - Após efetuar o clone do repositório em sua máquina, no terminal execute o comando ``dotnet build``. 
     - Caso acuse alguma falta de arquivos após a _build_, execute ``dotnet restore``.
     - Se não ocorrer nenhum erro, execute o próximo comando:``dotnet run``. 
